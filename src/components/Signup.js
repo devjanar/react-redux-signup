@@ -5,10 +5,7 @@ import {signUp} from '../actions/userAction'
 import {emailValidation} from '../utils/validators'
 import './Style.css'
 
-const Signup = ({
-       userInfo,
-       signUp,
-       }) => {
+const Signup = (props) => {
     const [user, setState] = useState({
             firstname:"",
             lastname:"",
@@ -58,7 +55,7 @@ const Signup = ({
             && user.isValidate
         ){
             const {isMismatch,isValidate,...data}=user;
-            signUp(data).then(success=>{
+            props.signUp(data).then(success=>{
                 alert("You have successfully submitted !!!")
             },error=>{
                 alert("Server Error !!!")
@@ -83,10 +80,10 @@ function mapStateToProps(state){
         userInfo: state.user
     }
 }
+const mapDispatchToProps = dispatch => ({
+    signUp(data) {
+        return dispatch(signUp(data))
+    },
+});
 
-const mapDispatch = {
-    signUp
-};
-
-
-export default connect(mapStateToProps, mapDispatch)(Signup);
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);
