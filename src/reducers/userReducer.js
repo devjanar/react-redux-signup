@@ -1,22 +1,22 @@
 import {
     ADD_SUCCESS,
     CREATE_SUCCESS,
-    FETCH_ERROR,
+    RECEIVE_ERROR,
 } from '../actions/userAction'
 
 const initialState = {
     inProgress: false,
-    user: null,
-    error: null,
+    data: null,
+    error: false,
 };
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case ADD_SUCCESS:
-            return { inProgress:true};
+            return { inProgress:true, error:false};
         case CREATE_SUCCESS:
-            return { user:action.user, inProgress:false};
-        case FETCH_ERROR:
+            return {...action.data, inProgress:false, error:false};
+        case RECEIVE_ERROR:
             return { inProgress:false, error:true};
         default:
             return state

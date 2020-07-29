@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {connect} from "react-redux";
 import Form from './Form'
-import {signUp} from '../actions/userAction'
+import {signUpHandler} from '../actions/userAction'
 import {emailValidation} from '../utils/validators'
 import './Style.css'
 
@@ -55,7 +55,7 @@ const Signup = (props) => {
             && user.isValidate
         ){
             const {isMismatch,isValidate,...data}=user;
-            props.signUp(data).then(success=>{
+            props.signUpHandler(data).then(success=>{
                 alert("You have successfully submitted !!!")
             },error=>{
                 alert("Server Error !!!")
@@ -81,8 +81,8 @@ function mapStateToProps(state){
     }
 }
 const mapDispatchToProps = dispatch => ({
-    signUp(data) {
-        return dispatch(signUp(data))
+    signUpHandler(data) {
+        return dispatch(signUpHandler(data))
     },
 });
 

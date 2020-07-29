@@ -3,7 +3,7 @@ import Signup from './components/Signup'
 import {connect} from "react-redux";
 
 
-const App = () => {
+const App = (props) => {
   return (
       <React.Fragment>
         <Signup/>
