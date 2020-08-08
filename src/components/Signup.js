@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {connect} from "react-redux";
-import Form from './Form'
+import SignForm from './common/SignForm'
 import {signUpHandler} from '../actions/userAction'
 import {emailValidation} from '../utils/validators'
 import './Style.css'
@@ -66,11 +66,18 @@ const Signup = (props) => {
 
     return (
         <React.Fragment>
-            <Form
-                user={user}
-                submitted={submitted}
-                onChange={onChangeHandle}
-                onClick={submitHandler}/>
+            <div className="container">
+                <div className="wrapper">
+                    <header className="title">
+                        <h2>Sign Up</h2>
+                    </header>
+                    <SignForm
+                        user={user}
+                        submitted={submitted}
+                        onChange={onChangeHandle}
+                        onSubmit={submitHandler}/>
+                </div>
+            </div>
         </React.Fragment>
     );
 };

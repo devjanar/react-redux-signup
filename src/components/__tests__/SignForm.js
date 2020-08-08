@@ -6,7 +6,7 @@ import { render, cleanup, waitForElement, fireEvent,screen} from '../../utils/te
 // import { render, cleanup, waitForElement, fireEvent,screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect'
 import reducer,{ initialState } from '../../reducers/userReducer'
-import Form from '../Form'
+import SignForm from '../common/SignForm'
 
 const user= {
     firstname:"",
@@ -27,9 +27,10 @@ const user= {
 
 afterEach(cleanup);
 
+
 test("form initial testing",async () => {
-    const onClick = jest.fn();
-    const {getByTestId } = render(<Form onClick={onClick} />, {
+    const handler = jest.fn(e => e.preventDefault());
+    const {getByTestId,getByText } = render(<SignForm onSubmit={handler} />, {
         reduxState: {
             user: user
         }
@@ -74,5 +75,5 @@ test("form initial testing",async () => {
     expect(getByTestId('state')).toHaveTextContent(user.state);
 
     fireEvent.click(getByTestId('submit'));
-    expect(onClick).toHaveBeenCalledTimes(1);
+    expect(handler).toHaveBeenCalledTimes(1)
 });
