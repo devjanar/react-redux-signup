@@ -1,4 +1,6 @@
 import axios from "axios";
+import {API_ROOT} from "../services/api";
+
 
 export const ADD_SUCCESS = 'ADD_SUCCESS';
 function addRequest() {
@@ -17,7 +19,7 @@ export const signUpHandler = (data) => {
     return  (dispatch) => {
         dispatch(addRequest());
         //Api, Connect to Server
-        const rs= axios.post('/create',data);
+        const rs= axios.post(`${API_ROOT}/create`,data);
         return Promise.resolve(rs).then(
             response => {
                 dispatch(createRequest({data:response.data}));

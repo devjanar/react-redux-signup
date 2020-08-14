@@ -1,0 +1,2 @@
+export const API_ROOT = `${process.env.REACT_APP_API_URL ? process.env.REACT_APP_API_URL : ''}/api`
+export const CALLBACK_URL = `${process.env.REACT_APP_CALLBACK_URL ? process.env.REACT_APP_CALLBACK_URL : ''}/api`
