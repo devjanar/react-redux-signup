@@ -1,4 +1,5 @@
 import React from 'react';
+import InputForm from './InputForm'
 import '../Style.css'
 
 const SignForm = ({
@@ -11,52 +12,129 @@ const SignForm = ({
     return(
         <form onSubmit={onSubmit}>
             <div className="form-group">
-                <input type="text" className="form-control" placeholder="First Name" name='firstname' value={firstname}
-                       data-testid="firstname" onChange={onChange} />
-                {submitted && !firstname && <div className="help-block">First name is required</div>}
+                <InputForm
+                    type="text"
+                    placeholder="First Name"
+                    className="form-control"
+                    name="firstname"
+                    value={firstname}
+                    onChange={onChange}
+                    submitted={submitted}
+                    requiredField="First name"
+                    testid="firstname"
+                />
             </div>
             <div className="form-group">
-                <input type="text" className="form-control" placeholder="Last Name" name='lastname' value={lastname}
-                       data-testid="lastname" onChange={onChange} />
-                {submitted && !lastname && <div className="help-block">Last name is required</div>}
+                <InputForm
+                    type="text"
+                    placeholder="Last Name"
+                    className="form-control"
+                    name="lastname"
+                    value={lastname}
+                    onChange={onChange}
+                    submitted={submitted}
+                    requiredField="Last name"
+                    testid="lastname"
+                />
             </div>
             <div className="form-group">
-                <input type="text" className="form-control" placeholder="Email" name='email' value={email}
-                       data-testid="email" onChange={onChange} />
-                {submitted && !email && <div className="help-block">Email is required</div>}
-                {submitted && email && !isValidate && <div className="help-block">Wrong Format</div>}
+                <InputForm
+                    type="text"
+                    placeholder="Email"
+                    className="form-control"
+                    name="email"
+                    value={email}
+                    onChange={onChange}
+                    submitted={submitted}
+                    requiredField="Email"
+                    testid="email"
+                />
+                {submitted
+                    && email && !isValidate
+                    && <div className="warning-block">Wrong Format</div>
+                }
             </div>
             <div className="form-group">
-                <input type="password" className="form-control" placeholder="Password" name='password' value={password}
-                       data-testid="password" onChange={onChange} />
-                {submitted && !password&& <div className="help-block">Password is required</div>}
-                {submitted && isMismatch && <div className="help-block">Password Dose Not Match</div>}
+                <InputForm
+                    type="password"
+                    placeholder="Password"
+                    className="form-control"
+                    name="password"
+                    value={password}
+                    onChange={onChange}
+                    submitted={submitted}
+                    requiredField="Password"
+                    testid="password"
+                />
             </div>
             <div className="form-group">
-                <input type="password" className="form-control" placeholder="Confirm Password" name='conFpassword' value={conFpassword}
-                       data-testid="conFpassword" onChange={onChange} />
-                {submitted && !conFpassword && <div className="help-block">Password is required</div>}
-                {submitted && isMismatch && <div className="help-block">Password Dose Not Match</div>}
+                <InputForm
+                    type="password"
+                    placeholder="Confirm Password"
+                    className="form-control"
+                    name="conFpassword"
+                    value={conFpassword}
+                    onChange={onChange}
+                    submitted={submitted}
+                    requiredField="Confirm password"
+                    testid="conFpassword"
+                />
+                {submitted
+                    && isMismatch
+                    && <div className="warning-block">Password Dose Not Match</div>
+                }
             </div>
             <div className="form-group">
-                <input type="text" className="form-control" placeholder="Address" name='address' value={address}
-                       data-testid="address" onChange={onChange} />
-                {submitted && !address && <div className="help-block">Address is required</div>}
+                <InputForm
+                    type="text"
+                    placeholder="Address"
+                    className="form-control"
+                    name="address"
+                    value={address}
+                    onChange={onChange}
+                    submitted={submitted}
+                    requiredField="Address"
+                    testid="address"
+                />
             </div>
             <div className="form-group">
-                <input type="text" className="form-control" placeholder="City" name='city' value={city}
-                       data-testid="city" onChange={onChange} />
-                {submitted && !city && <div className="help-block">city is required</div>}
+                <InputForm
+                    type="text"
+                    placeholder="City"
+                    className="form-control"
+                    name="city"
+                    value={city}
+                    onChange={onChange}
+                    submitted={submitted}
+                    requiredField="City"
+                    testid="city"
+                />
             </div>
             <div className="form-group">
-                <input type="text" className="form-control" placeholder="Zip" name='zip' value={zip}
-                       data-testid="zip" onChange={onChange} />
-                {submitted && !zip && <div className="help-block">Zip is required</div>}
+                <InputForm
+                    type="text"
+                    placeholder="Zip"
+                    className="form-control"
+                    name="zip"
+                    value={zip}
+                    onChange={onChange}
+                    submitted={submitted}
+                    requiredField="Zip"
+                    testid="zip"
+                />
             </div>
             <div className="form-group">
-                <input type="text" className="form-control" placeholder="State" name='state' value={state}
-                       data-testid="state" onChange={onChange} />
-                {submitted && !state && <div className="help-block">State is required</div>}
+                <InputForm
+                    type="text"
+                    placeholder="State"
+                    className="form-control"
+                    name="state"
+                    value={state}
+                    onChange={onChange}
+                    submitted={submitted}
+                    requiredField="State"
+                    testid="state"
+                />
             </div>
             <div className="submit">
                 <button className="btn btn-success" data-testid="submit">

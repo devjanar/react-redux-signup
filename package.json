@@ -2,6 +2,12 @@
   "name": "react-redux-signup",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Mir Janar Hossain",
+    "email": "dev.janar@gmail.com",
+    "url": "https://github.com/devjanar",
+    "website": "https://innovationghar.com"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.1",
     "@testing-library/jest-dom": "^4.2.4",
